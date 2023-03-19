@@ -32,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String apikey = "your apikey";
+  String apikey = "--APIKEY-FROM-PIXEL--";
   String responsestring = "";
   Map<String, dynamic> imageMap = Map();
   List<dynamic> imgList = [];
@@ -133,11 +133,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Container(
                   //color: Colors.black,
                   height: 50 ,
-                  width: 250,
+                  width: MediaQuery.of(context).size.width*0.85,
                   child: Center(
                     child: Text(
                       searchcategoryController.text!=""?
-                      "Showing ${imgList.length} results for ${searchcategoryController.text}":
+                      ( imgList.length !=0? "Showing ${imgList.length} results for ${searchcategoryController.text}" : "No results found"):
                       "Find your \"inspiration\"",
                       maxLines: 1,
                       style: TextStyle(color: Colors.white, fontSize: 18,letterSpacing: 1.2,fontWeight: FontWeight.w300,overflow: TextOverflow.ellipsis),
